@@ -27,7 +27,7 @@ export function useTemperatureData({ lastNYears = 10 } = {}) {
       try {
         const parseDate = d3.timeParse("%Y-%m-%d");
 
-        const rows = await d3.csv("/temperature_daily.csv", (d) => ({
+        const rows = await d3.csv(`${import.meta.env.BASE_URL}temperature_daily.csv`, (d) => ({
           dateStr: d.date,
           dateObj: parseDate(d.date),
           tmax: +d.max_temperature,
